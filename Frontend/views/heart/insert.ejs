@@ -1,0 +1,67 @@
+<%- include('../includes/head.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
+
+        <div class="container mt-3">
+            <h2>Insert Heart Information</h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <% if (errorMessage) { %>
+                                <div class="alert alert-warning" role="alert">
+                                    <%= errorMessage[0].param + ': '+ errorMessage[0].msg %>
+                                </div>
+                                <% } %>
+                                    <form method="POST">
+                                        <div class="form-group">
+                                            <label for="title">Age</label>
+                                            <input type="text" class="form-control" name="Age" placeholder="Age" value="<%= Age %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">Sex</label>
+                                            <input type="text" class="form-control" name="Sex" placeholder="Sex" value="<%= Sex %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">ChestPainType</label>
+                                            <input type="text" class="form-control" name="ChestPainType" placeholder="ChestPainType" value="<%= ChestPainType %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">RestingBP</label>
+                                            <input type="text" class="form-control" name="RestingBP" placeholder="RestingBP" value="<%= RestingBP %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">Cholesterol</label>
+                                            <input type="text" class="form-control" name="Cholesterol" placeholder="Cholesterol" value="<%= Cholesterol %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">FastingBS</label>
+                                            <input type="text" class="form-control" name="FastingBS" placeholder="FastingBS" value="<%= FastingBS %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">RestingECG</label>
+                                            <input type="text" class="form-control" name="RestingECG" placeholder="RestingECG" value="<%= RestingECG %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">MaxHR</label>
+                                            <input type="text" class="form-control" name="MaxHR" placeholder="MaxHR" value="<%= MaxHR %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">ExerciseAngina</label>
+                                            <input type="text" class="form-control" name="ExerciseAngina" placeholder="ExerciseAngina" value="<%= ExerciseAngina %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">Oldpeak</label>
+                                            <input type="text" class="form-control" name="Oldpeak" placeholder="Oldpeak" value="<%= Oldpeak %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="title">ST_Slope</label>
+                                            <input type="text" class="form-control" name="ST_Slope" placeholder="ST_Slope" value="<%= ST_Slope %>">
+                                        </div>
+                                        <a href="/heart" class="btn btn-secondary"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+                                        <button type="submit" class="btn btn-success"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('../includes/end.ejs') %>

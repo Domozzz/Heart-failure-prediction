@@ -1,0 +1,92 @@
+<%- include('../includes/head.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
+
+        <div class="container mt-3">
+            <h2>Heart Information</h2>
+            <div class="row">
+                
+                <div class="col-md-2">
+                    <a href="/heart/insert" class="btn btn-primary btn-block"><i class="fa fa-plus" aria-hidden="true"></i> Add New Data</a>
+                </div>
+            </div>
+            <br>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>ChestPainType</th>
+                        <th>RestingBP</th>
+                        <th>Cholesterol</th>
+                        <th>FastingBS</th>
+                        <th>RestingECG</th>
+                        <th>MaxHR</th>
+                        <th>ExerciseAngina</th>
+                        <th>Oldpeak</th>
+                        <th>ST_Slope</th>
+                        <th>predict</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <% if (Heart.length > 0) { %>
+
+                        <% Heart.map((heart, index) => { %>
+                            <tr>
+                                <td>
+                                    <%- (index+1) %>
+                                </td>
+                                <td>
+                                    <%- heart.Age%>
+                                </td>
+                                <td>
+                                    <%- heart.Sex%>
+                                </td>
+                                <td>
+                                    <%- heart.ChestPainType%>
+                                </td>
+                                <td>
+                                    <%- heart.RestingBP%>
+                                </td>
+                                <td>
+                                    <%- heart.Cholesterol%>
+                                </td>
+                                <td>
+                                    <%- heart.FastingBS%>
+                                </td>
+                                <td>
+                                    <%- heart.RestingECG%>
+                                </td>
+                                <td>
+                                    <%- heart.MaxHR%>
+                                </td>
+                                <td>
+                                    <%- heart.ExerciseAngina%>
+                                </td>
+                                <td>
+                                    <%- heart.Oldpeak%>
+                                </td>
+                                <td>
+                                    <%- heart.ST_Slope%>
+                                </td>
+                                <td>
+                                    <%- heart["prediction(HeartDisease)"] %>
+                                </td>
+                                <td>
+                                    <a href="<%- '/heart/update/'+heart.id%>" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+                                    <a href="/heart/delete/<%= heart.id %>" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger"> <i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="4">
+                                            <h1>No Data Found!</h1>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                </tbody>
+            </table>
+
+            <%- include('../includes/end.ejs') %>
